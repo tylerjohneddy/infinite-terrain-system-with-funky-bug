@@ -3,6 +3,9 @@ package com.qa.stit;
 public class Level {
 	private int level = 1;
 
+	/**
+	 * Prints a written description of the current level.
+	 */
 	public void levelDiscriptor() {
 
 		switch (this.level) {
@@ -22,13 +25,16 @@ public class Level {
 		}
 	}
 
+	/**
+	 * Prints a written description of the current levels reward.
+	 */
 	public void rewardDiscriptor() {
 
 		switch (this.level) {
 
 		case 1:
 			System.out.println(
-					"The number on the watch has reached 0, it has led me to a chest....\nInside the chest is a manual with a picture of the watch on it, all the pages are wet and i can only make out one thing...\n\n The watch will lead you home...");
+					"The number on the watch has reached 0, it has led me to a chest....\nInside the chest is a manual with a picture of the watch on it, all the pages are wet and i can only make out one thing...\n\nThe watch will lead you home...\n");
 			break;
 		default:
 			System.out.println(
@@ -37,7 +43,19 @@ public class Level {
 		}
 	}
 
+	/**
+	 * @param level
+	 * Set the level the player is on.
+	 */
 	public void setLevel(int level) {
 		this.level = level;
+	}
+
+	/**
+	 * @return
+	 * get the level the player is on.
+	 */
+	public int getLevel() {
+		return level;
 	}
 }

@@ -9,54 +9,59 @@ public class Runner {
 
 		boolean exit = true;
 		int[] playerPostion = player.getPlayerPostiion();
-		int[] intrest = intrestInstance.position();
+		int[] intrest;
 
-		double distance = calc.distance(playerPostion, intrest);
-		while(exit) {
+		while (exit) {
 			level.levelDiscriptor();
-		while (distance != 0.0 && exit) {
-			System.out.printf("playerx=%s,playerY=%s,intrestX=%s,intrestY=%s%n", playerPostion[0], playerPostion[1],
-					intrest[0], intrest[1]);
-			System.out.printf("The compass reads\n\t%.2fm\n", (float) distance);
-			System.out.println("Which direction do you want to go?");
+			System.out.println("Printed once");
+			intrest = intrestInstance.getPosition();
+			System.out.println("Printed once again");
+			double distance = calc.distance(player, intrestInstance);
+//			double distance = 1.0; 
+			System.out.println("hjkgfsjklndflkjlfk");
+			while (distance != 0.0 && exit) {
+				System.out.println("hujfhoi");
+				System.out.printf("playerx=%s,playerY=%s,intrestX=%s,intrestY=%s%n, thisisatest", playerPostion[0], playerPostion[1],
+						intrest[0], intrest[1]);
+				System.out.printf("The watch reads\n\t%.2fm\n", (float) distance);
+				System.out.println("Which direction do you want to go?");
 
+				Directions direction = Directions.getDirection();
 
-			Directions direction = Directions.getDirection();
+				switch (direction) {
+				case NORTH:
+					player.setPlayerX(player.getPlayerPostiion()[0] + 1);
+					break;
+				case EAST:
+					player.setPlayerY(player.getPlayerPostiion()[1] + 1);
+					break;
+				case SOUTH:
 
-			switch (direction) {
-			case NORTH:
-				player.setPlayerX(player.getPlayerPostiion()[0] + 1);
-				break;
-			case EAST:
-				player.setPlayerY(player.getPlayerPostiion()[1] + 1);
-				break;
-			case SOUTH:
+					player.setPlayerX(player.getPlayerPostiion()[0] - 1);
+					break;
+				case WEST:
+					player.setPlayerY(player.getPlayerPostiion()[1] - 1);
+					break;
+				case EXIT:
+					exit = false;
+					distance = 0.0;
+					break;
 
-				player.setPlayerX(player.getPlayerPostiion()[0] - 1);
-				break;
-			case WEST:
-				player.setPlayerY(player.getPlayerPostiion()[1] - 1);
-				break;
-			case EXIT:
-				exit = false;
-				distance = 0.0;
-				break;
+				default:
+					break;
+				}
+				distance = calc.distance(player
+						, intrestInstance);
 
-			default:
-				break;
 			}
-			distance = calc.distance(playerPostion, intrest);
+			if (exit) {
+				level.rewardDiscriptor();
+				level.setLevel(level.getLevel()+1);
+
+			} else {
+				System.out.println("Thanks for playing, see you soon!");
+			}
 
 		}
-		if (exit) {
-			level.rewardDiscriptor();
-			intrest = intrestInstance.position();
-			
-
-		} else {
-			System.out.println("Thanks for playing, see you soon!");
-		}
-
-	}
 	}
 }
