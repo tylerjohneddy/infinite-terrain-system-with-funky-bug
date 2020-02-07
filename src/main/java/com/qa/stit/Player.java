@@ -15,7 +15,6 @@ public class Player {
 	 * @return returns an int list of with the {x, y} position of the player
 	 */
 	public int[] getPlayerPostiion() {
-
 		return playerPostiion;
 	}
 

@@ -13,16 +13,13 @@ public class Runner {
 
 		while (exit) {
 			level.levelDiscriptor();
-			System.out.println("Printed once");
 			intrest = intrestInstance.getPosition();
-			System.out.println("Printed once again");
 			double distance = calc.distance(player, intrestInstance);
 //			double distance = 1.0; 
-			System.out.println("hjkgfsjklndflkjlfk");
 			while (distance != 0.0 && exit) {
-				System.out.println("hujfhoi");
-				System.out.printf("playerx=%s,playerY=%s,intrestX=%s,intrestY=%s%n, thisisatest", playerPostion[0], playerPostion[1],
+				System.out.printf("playerx=%s,playerY=%s,intrestX=%s,intrestY=%s%n", playerPostion[0], playerPostion[1],
 						intrest[0], intrest[1]);
+				System.out.println(player.getPlayerPostiion()[0]+" "+player.getPlayerPostiion()[1]);
 				System.out.printf("The watch reads\n\t%.2fm\n", (float) distance);
 				System.out.println("Which direction do you want to go?");
 
